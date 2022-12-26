@@ -1,10 +1,124 @@
 @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@500;700&display=swap');
 
 :root {
+    --shadow-color: hsla(217, 19%, 35%, 0.478);
     --very-dark-grayish-blue: hsl(217, 19%, 35%);
     --desaturated-dark-blue: hsl(214, 17%, 51%);
     --grayish-blue: hsl(212, 23%, 69%);
     --light-grayish-blue: hsl(210, 46%, 95%);
 
     font-size: 13px;
+}
+
+* {
+    font-family: Manrope, sans-serif;
+}
+
+body {
+    display: flex;
+    background-color: var(--light-grayish-blue);
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    width: 88%;
+    margin: auto;
+    background-color: white;
+    border-radius: 1rem;
+    box-shadow: 0 20px 20px var(--shadow-color);
+    position: relative;
+}
+
+.image-holder img {
+    border-radius: 1rem 1rem 0 0;
+}
+
+.content-holder {
+    padding: 30px;
+}
+
+.content-holder > h1 {
+    font-size: 1.3rem;
+    color: var(--very-dark-grayish-blue);
+}
+
+.content-holder > p {
+    margin: 15px 0;
+    color: var(--desaturated-dark-blue);
+    line-height: 1.7rem;
+}
+
+.content-holder > footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 30px;
+}
+
+.content-holder > footer > .author {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.content-holder > footer > .author > img {
+    border-radius: 50%;
+    width: 40px;
+}
+
+.content-holder > footer > .author > .text > .name {
+    color: var(--very-dark-grayish-blue);
+    font-weight: 700;
+}
+
+.content-holder > footer > .author > .text > .date {
+    color: var(--grayish-blue);
+}
+
+.content-holder > footer > .share {
+    background-color: var(--light-grayish-blue);
+    padding: 8px;
+    border-radius: 50%;
+    display: flex;
+}
+
+.content-holder > footer > .share > img {
+    margin: auto;
+}
+
+@media (min-width: 375px) {
+    main {
+        flex-direction: row;
+        max-width: 890px;
+    }
+
+    .image-holder img {
+        border-radius: 1rem 0 0 1rem;
+    }
+}
+
+.share-mobile {
+    /* position: absolute;
+    bottom: 0; */
+    background-color: var(--very-dark-grayish-blue);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 0 0 1rem 1rem;
+    padding: 20px;
+}
+
+.share-mobile > h2 {
+    text-transform: uppercase;
+    color: var(--grayish-blue);
+    letter-spacing: .3rem;
+    font-size: .8rem;
+}
+
+.share-mobile > .icons {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem
 }
