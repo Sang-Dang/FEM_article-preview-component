@@ -30,115 +30,169 @@ main {
     position: relative;
 }
 
-.image-holder img {
-    border-radius: 1rem 1rem 0 0;
+.image-holder {
+    width: 100%;
+    height: 100%;
 }
 
-.content-holder {
+.image-holder img {
+    border-radius: 1rem 1rem 0 0;
+    height: 100%;
+    object-fit:cover;
+}
+
+.content-holder > .text {
     padding: 30px;
 }
 
-.content-holder > h1 {
+.content-holder > .text > h1 {
     font-size: 1.3rem;
     color: var(--very-dark-grayish-blue);
 }
 
-.content-holder > p {
+.content-holder > .text > p {
     margin-top: 15px;
     color: var(--desaturated-dark-blue);
     line-height: 1.7rem;
 }
 
-footer {
+.base {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
-    margin-bottom: 1rem;
+    padding: 0 30px;
+    padding-bottom: 1rem;
+    height: 4.2rem;
 }
 
-footer > .author {
+.base > .author {
     display: flex;
-    align-items: center;
     gap: 1rem;
+    align-items: center;
 }
 
-footer > .author > img {
+.base > .author > img {
+    width: 3.2rem;
+    object-fit: contain;
     border-radius: 50%;
-    width: 40px;
 }
 
-footer > .author > .text > .name {
+.base > .author > .text > .name {
     color: var(--very-dark-grayish-blue);
-    font-weight: 700;
+    font-weight: 900;
 }
 
-footer > .author > .text > .date {
+.base > .author > .text > .date {
     color: var(--grayish-blue);
 }
 
-footer > .share {
+.base > .share {
+    border-radius: 50%;
     background-color: var(--light-grayish-blue);
     padding: 8px;
-    border-radius: 50%;
-    display: flex;
 }
 
-footer > .share > img {
-    margin: auto;
+.mobile {
+    display: flex;
+    flex-direction: row;
+    background-color: var(--very-dark-grayish-blue);
+    border-radius: 0 0 1rem 1rem;
+    padding: 15px 30px;
+    padding-bottom: 1rem;
+    justify-content: space-between;
+    align-items: center;
+    height: 5.3rem;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    opacity: 0;
+    transition: opacity 0.2s linear;
+}
+
+.mobile > .content {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    gap: 2rem;
+}
+
+.mobile > .content > .text {
+    color: var(--light-grayish-blue);
+    letter-spacing: .25rem;
+    opacity: .5;
+    font-size: .9rem;
+}
+
+.mobile > .content > .icons {
+    display: flex;
+    gap: 1rem;
+}
+
+.mobile > .content > .icons > img {
+    width: 1.2rem;
+    object-fit: contain;
+}
+
+.mobile > .share {
+    border-radius: 50%;
+    background-color: #6d7f99;
+    padding: 8px;
+}
+
+.mobile > .share > img {
+    filter:brightness(100);
+}
+
+.mobile.active {
+    opacity: 1;
 }
 
 @media (min-width: 375px) {
     main {
         flex-direction: row;
         max-width: 890px;
+        align-items: center;
+        height: 300px;
     }
 
     .image-holder img {
         border-radius: 1rem 0 0 1rem;
     }
-}
 
-.share-mobile {
-    position: absolute;
-    bottom: 0;
-    background-color: var(--very-dark-grayish-blue);
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-around;
-    gap: 1.5rem;
-    border-radius: 0 0 1rem 1rem;
-    padding: 20px 20px;
-    width: 100%;
-    opacity: 1;
-}
+    .mobile {
+        display: flex;
+        opacity: 1;
+        border-radius: 1rem;
+        padding: 10px 30px;
+        justify-content: center;
+        height: auto;
+        width: auto;
+        bottom: 30%;
+        right: -5.5%;
+        opacity: 0;
+        transition: all 0.2s linear;
+    }
 
-.share-mobile > .info {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-}
+    .mobile > .content {
+        z-index: 10;
+        gap: 1rem;
+    }
 
-.share-mobile > .info > h2 {
-    text-transform: uppercase;
-    color: var(--grayish-blue);
-    letter-spacing: .3rem;
-    font-size: 1rem;
-}
+    .mobile > .share {
+        position: absolute;
+        bottom: -115%;
+        left: 45%;
+    }
 
-.share-mobile > .info > .icons {
-    display: flex;
-    flex-direction: row;
-    gap: 1rem;
-}
-
-.share-mobile > .share-disable {
-    background-color: var(--grayish-blue);
-    padding: 8px;
-    border-radius: 50%;
-    display: flex;
-}
-
-.share-mobile > .share-disable img {
-    filter:brightness(100);
+    .mobile > .share > .speech-arrow {
+        background-color: var(--very-dark-grayish-blue);
+        padding: 10px;
+        transform:rotate(45deg);
+        position: absolute;
+        top: -2.3rem;
+        left: 20%;
+        z-index: 0;
+        width: 3px;
+        height: 3px;
+    }
 }
