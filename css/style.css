@@ -147,7 +147,7 @@ main {
     opacity: 1;
 }
 
-@media (min-width: 375px) {
+@media (min-width: 400px) {
     main {
         flex-direction: row;
         max-width: 890px;
